@@ -12,16 +12,18 @@ const According = ({ items }: Props) => {
     }
 
     const renderedItems: JSX.Element[] = items.map((item: { title: string, content: string }, index: number) => {
+        const active: string = index === activeIndex ? 'active' : ''
+
         return (
             <React.Fragment key={item.title}>
                 <div
-                    className="title active"
+                    className={`title ${active}`}
                     onClick={() => onTitileClick(index)}
                 >
                     <i className="dropdown icon"></i>
                     {item.title}
                 </div>
-                <div className="content active">
+                <div className={`content ${active}`}>
                     <p >
                         {item.content}
                     </p>
@@ -32,7 +34,6 @@ const According = ({ items }: Props) => {
 
     return <div className="ui styled accordion">
         {renderedItems}
-        <h1>{activeIndex}</h1>
     </div>
 }
 
