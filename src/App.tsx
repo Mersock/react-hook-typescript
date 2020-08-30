@@ -1,25 +1,37 @@
-import React from 'react'
-import According from './components/According'
+import React, { useState } from 'react'
+// import Search from './components/Search'
+import Dropdown from './components/Dropdown'
 
-const items: { title: string, content: string }[] = [
+const options: { label: string, value: string }[] = [
     {
-        title: 'What is React',
-        content: 'React is front end javascript framework'
+        label: 'The Color Red',
+        value: 'red'
     },
     {
-        title: 'Why use React',
-        content: 'React is a favarite JS library among engineers'
+        label: 'The Color Green',
+        value: 'green'
     },
     {
-        title: 'How do you use React',
-        content: 'you use React by creating components'
+        label: 'The Color Blue',
+        value: 'blue'
     }
 ]
 
 export default () => {
+    const [selected, setselected] = useState<{ label: string, value: string }>(options[0])
+    const [showDropdown, setShowDropdown] = useState<boolean>(true)
+
     return (
         <div>
-            <According items={items} />
+            <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
+            {showDropdown ? (
+                <Dropdown
+                    onSelectedChange={setselected}
+                    selected={selected}
+                    options={options}
+                />
+            ) : null
+            }
         </div>
     )
 };
