@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 type Props = {
+    label: string
     options: { label: string, value: string }[],
     selected: { label: string, value: string }
     onSelectedChange: React.Dispatch<React.SetStateAction<{
@@ -9,7 +10,7 @@ type Props = {
     }>>
 }
 
-function Dropdown({ options, selected, onSelectedChange }: Props) {
+function Dropdown({ label, options, selected, onSelectedChange }: Props) {
     const [open, setopen] = useState<boolean>(false)
     const ref = useRef<HTMLDivElement | null>(null)
 
@@ -47,7 +48,7 @@ function Dropdown({ options, selected, onSelectedChange }: Props) {
         <div ref={ref} className="ui form">
             <div className="field">
                 <label className="label">
-                    Select a Color
+                    {label}
                 </label>
                 <div
                     onClick={() => setopen(!open)}
