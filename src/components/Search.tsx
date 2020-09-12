@@ -29,6 +29,7 @@ const Search = () => {
                     srsearch: debouncedTerm
                 }
             })
+            console.log(data);
             setResults(data.query.search)
         }
         if (debouncedTerm) {

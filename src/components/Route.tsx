@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const Route = ({ path, children }: { path: any, children: any }) => {
+const Route = ({ path, children }: { path: string, children: JSX.Element }) => {
     const [currentPath, setcurrentPath] = useState(window.location.pathname)
 
     useEffect(() => {

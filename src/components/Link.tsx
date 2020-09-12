@@ -6,8 +6,10 @@ type Props = {
     children: any
 }
 
+
+
 function Link({ className, href, children }: Props) {
-    const onClick = (event: any): void => {
+    const onClick = (event: React.MouseEvent): void => {
         if (event.metaKey || event.ctrlKey) {
             return
         }
